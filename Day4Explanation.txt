@@ -1,0 +1,12 @@
+public static void main
+
+public = it can be accessed from anywhere (any class, same package, different package etc.)
+static = stored in fixed mem location. Function needs to have static keyword, so that it can be accessed by main. 
+void = void is used because the function isn't returning a value.
+main = JVM searches for main first. Then functions are accessed if called from main method.
+
+System.out.println()
+
+System = (final class) provides standard input/output streams or error streams.
+out = instance of PrintStream. standard output stream, used to give output.
+println = print on a new line ("\n" included)
