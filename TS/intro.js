@@ -1,0 +1,54 @@
+var cars;
+cars = ["Saab", "Volvo", "BMW"];
+// --------------------------------------------------
+var colours = ["Red", "Green", "Blue"];
+colours.push("Black");
+colours.push("White");
+colours.push("Yellow");
+console.log(colours);
+colours.pop();
+console.log(colours);
+// --------------------------------------------------
+var Tup;
+Tup = [1, "Hello"];
+Tup.push(2, "World");
+console.log(Tup);
+// --------------------------------------------------
+function sub(a, b) {
+    return a - b;
+}
+console.log(sub(10, 5));
+// --------------------------------------------------
+function mul(a, b, c) {
+    return a * b;
+}
+console.log(mul(10, 5, 2));
+// --------------------------------------------------
+function add(a, b, c) {
+    if (c === void 0) { c = 26; }
+    return a + b + c;
+}
+console.log(add(10, 5));
+// --------------------------------------------------
+var multi;
+multi = [1, 2, 3];
+multi = "Hello";
+multi = true;
+console.log(multi);
+// --------------------------------------------------
+var multivar;
+multivar = true;
+multivar = "Hello";
+// multivar = 2;
+console.log(multivar);
+// --------------------------------------------------
+var People = /** @class */ (function () {
+    function People() {
+    }
+    return People;
+}());
+;
+var obj = new People();
+obj.name = "John";
+obj.string = "Hello";
+console.log(obj.string + " " + obj.name);
