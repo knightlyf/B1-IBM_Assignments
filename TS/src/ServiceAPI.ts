@@ -1,6 +1,6 @@
 import * as request from 'request';
 import { user } from './user';
-import { repo } from './repo';
+import { Repo } from './repo';
 
 //header
 const options: any = {
@@ -21,15 +21,16 @@ export class ServiceAPI{
             // console.log(error);
             let usr = new user(body);
             // let usr = new user(JSON.parse(body));
-            console.log(usr);
+            // console.log(usr);
+            callback(usr);
         });
     }
 
-    getRepo(userName:string){
+    getRepo(userName:string,callback:(repr:Repo[])=>any){
         // request repo info
         request.get("https://api.github.com/users/"+userName+"/repos",options,(error:any,response:any,body:any)=>{
-            let rep = new repo(body);
-            console.log(rep);
+            let rep = body.map((repo:any)=>new Repo(repo));
+            callback(rep);
         });
     }
 }

@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
-exports.repo = void 0;
-var repo = /** @class */ (function () {
+exports.Repo = void 0;
+var Repo = /** @class */ (function () {
     // constructor(name:string,description:string,url:string,size:number,forkCount:number){
     //     this.name = name;
     //     this.description = description;
@@ -9,13 +9,13 @@ var repo = /** @class */ (function () {
     //     this.size = size;
     //     this.forkCount = forkCount;
     // }
-    function repo(repoResponse) {
+    function Repo(repoResponse) {
         this.name = repoResponse.name;
         this.description = repoResponse.description;
         this.url = repoResponse.html_url;
         this.size = repoResponse.size;
         this.forkCount = repoResponse.forks_count;
     }
-    return repo;
+    return Repo;
 }());
-exports.repo = repo;
+exports.Repo = Repo;

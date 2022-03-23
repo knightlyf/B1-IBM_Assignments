@@ -22,14 +22,15 @@ var ServiceAPI = /** @class */ (function () {
             // console.log(error);
             var usr = new user_1.user(body);
             // let usr = new user(JSON.parse(body));
-            console.log(usr);
+            // console.log(usr);
+            callback(usr);
         });
     };
-    ServiceAPI.prototype.getRepo = function (userName) {
+    ServiceAPI.prototype.getRepo = function (userName, callback) {
         // request repo info
         request.get("https://api.github.com/users/" + userName + "/repos", options, function (error, response, body) {
-            var rep = new repo_1.repo(body);
-            console.log(rep);
+            var rep = body.map(function (repo) { return new repo_1.Repo(repo); });
+            callback(rep);
         });
     };
     return ServiceAPI;

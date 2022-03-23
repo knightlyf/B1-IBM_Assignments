@@ -1,11 +1,11 @@
-import {repo} from "./repo";
+import {Repo} from "./repo";
 
 export class user{
     login:string;
     fullname:string;
     repoCount:number;
     followers:number;
-    repos:repo[];
+    repos ?:Repo[];
 
     constructor(userResponse:any){
         this.login = userResponse.login;
