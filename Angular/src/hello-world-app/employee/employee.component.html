@@ -1,0 +1,10 @@
+<p>aircraft list</p>
+
+<input type="text" #Input1 placeholder="Enter a number"/>
+<h4>{{139.48796 | number:'1.1-2'}}</h4>
+<h4>{{139.48796 | number:'1.6'}}</h4>
+<h4>{{249.48796 | currency :'USD' : 'symbol':'3.5'}}</h4>
+<h4>{{249.48796 | currency:'INR' : 'symbol':'3.5'}}</h4>
+<h2 *ngFor="let aircraft of aircrafts">
+   <li>{{aircraft.id}} {{aircraft.name}} {{aircraft.type}}</li>
+</h2>

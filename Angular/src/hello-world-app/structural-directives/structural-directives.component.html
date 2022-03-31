@@ -1,0 +1,55 @@
+<!-- IfElse-->
+<h1>TASKS</h1>
+<h2 *ngIf="displayName;then thenBlock; else elseBlock">
+    Code works!!!
+</h2>
+<ng-template #elseBlock>
+    <h2>Code doesnt work!!!</h2>
+</ng-template>
+<ng-template #thenBlock>
+    <h2>Code works from then block!!!</h2>
+</ng-template>
+
+<!--Switch Case-->
+<div [ngSwitch]="displayColor">
+    <div *ngSwitchCase="'red'" [style.color]="'red'">You picked red color</div>
+    <div *ngSwitchCase="'blue'" [style.color]="'blue'">You picked blue color</div>
+    <div *ngSwitchCase="'yellow'"  [style.color]="'yellow'">you picked yellow color</div>
+    <div *ngSwitchDefault>Pick again</div>
+</div>
+
+<!--FOR-->
+<div><h3 [style.color]="'green'">Index&emsp;City&emsp;Odd&emsp;Even&emsp;Last&emsp;First</h3></div>
+<div *ngFor = "let city of cities; index as i; odd as o; last as l; even as e; first as f" >
+    
+    <h3>{{i}}&emsp;{{city}}&emsp;{{o}}&emsp;{{e}}&emsp;{{l}}&emsp;{{f}}</h3>
+</div>
+
+<!--ParentData-->
+<div>
+    <h3>{{"My laptop is:"+parentData}}</h3>
+    <button (click)="fireEvent()">Send Event</button>
+    <h4>{{random_text | lowercase}}</h4>
+    <h4>{{random_text | uppercase}}</h4>
+    <h4>{{random_text | titlecase}}</h4>
+    <h4>{{random_text | slice:3:5}}</h4>
+    <h4>{{random_text | slice:3}}</h4>
+    <h4>{{person | json}}</h4>
+    <h4>{{0.75 | percent}}</h4>
+    <h4>{{0.75 | currency}}</h4>
+    <h4>{{0.75 | currency:'INR'}}</h4>
+    <h4>{{6.986 | number: '1.2-3'}}</h4>
+    <h4>{{9.1846 | number: '4.1-3'}}</h4>
+    <h4>{{77.9865 | number: '1.4-5'}}</h4>
+    <h4>{{date | date:'short'}}</h4>
+    <h4>{{date | date:'shortTime'}}</h4>
+    <h4>{{date | date:'medium'}}</h4>
+    <h4>{{date | date:'mediumTime'}}</h4>
+    <h4>{{date | date:'long'}}</h4>
+    <h4>{{date | date:'longTime'}}</h4>
+</div>
+<div>
+    <h4 *ngFor="let aircraft of aircrafts;" >
+        <li>{{aircraft.id}} {{aircraft.name}} {{aircraft.type}}</li>
+    </h4>
+</div>

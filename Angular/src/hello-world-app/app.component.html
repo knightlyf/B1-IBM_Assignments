@@ -1,0 +1,17 @@
+
+<!-- <span>{{"welcome" + title.length + title.toUpperCase()}} app is running!</span> -->
+<div>
+  <h1>
+ Welcome to {{2+2}} app is running!
+</h1>
+ <!-- <app-test></app-test> -->
+ <!-- <div class = 'app-test'></div> -->
+ <input type="text" #myInput>
+ <button (click)="logMessage(myInput.value)">click me</button>
+ <!-- <app-test></app-test> -->
+ <h1>{{msgs}}</h1>
+ <!-- <app-structural-directives [parentData]="laptopName"></app-structural-directives> -->
+ <!-- <app-structural-directives (childEvent)="msgs=$event" [parentData]="laptopName"></app-structural-directives> -->
+ <app-employee></app-employee>
+</div>
+ <!-- <span>{{a = 2+2}} app is running!</span> -->
