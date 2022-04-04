@@ -1,0 +1,7 @@
+<h2 class="text2">Current Aircraft in Airport</h2>
+<ul class="items">
+    <li (click)="onSelect(item)" *ngFor = "let item of aircrafts">
+        <span class="badge">{{item.reg}}</span>{{item.Operator}}
+        <!-- <span>{{item.Operator}}</span> -->
+    </li>
+</ul>
