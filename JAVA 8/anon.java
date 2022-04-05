@@ -30,7 +30,7 @@ public class anon{
         }
 
         //---------------------EXTRA----------------------------
-        anon a = new anon();
+        //anon a = new anon();
         eval(list3,num -> true);
         System.out.println("\n\nList of numbers greater than 10");
         eval(list3,num -> num>10);
