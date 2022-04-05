@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,7 +21,15 @@ public class ExtraTasks2{
 
         System.out.println(cityList.stream().findFirst());
 
-        System.out.println(cityList.stream().filter(x->!x.isEmpty()).count());
+        System.out.println(cityList.stream().filter(x->x.isEmpty()).count());
 
+        cityList.stream().filter(x->!x.isEmpty()).forEach(System.out::println);
+
+        List<Integer> numList = new ArrayList<>();
+        for(int i=1;i<26;i++){
+            numList.add(i);
+        }
+        int sum = numList.stream().mapToInt(x->x).sum();
+        System.out.println(sum);
     }
 }

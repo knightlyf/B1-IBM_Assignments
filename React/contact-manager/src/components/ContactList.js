@@ -1,15 +1,20 @@
 import React from "react";
+import ContactCard from "./ContactCard";
+
 const ContactList=(props)=>{
     console.log(props);
     const renderContactList = props.contacts.map((contact)=>{
         return(
             <div className="item">
-                <div className="content">
-                    <div className="header">{contact.name}</div>
-                    <div className="description">{contact.email}</div>
-                    <i className="trash alternate outline icon"></i>
-                </div>
+            <img className="avatar" src={user} alt="user" width={"20px"} height={"20px"} />
+            <div className="content">
+                <div className="header">{name}</div>
+                <div className="description">{email}</div>
+                <i className="trash alternate outline icon" style={{color:'Red',marginTop:'7px'}}></i>
             </div>
+            {/* <ContactCard contact={con
+                tact}></ContactCard> */}
+        </div>
         );
 });
 
