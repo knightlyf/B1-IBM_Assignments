@@ -28,7 +28,13 @@ public class StudentImpl implements StudentDAO {
 
    @Autowired
    private JdbcTemplate jdbcTemplateObject;
-
+   
+   /** 
+    * register method is used by RESTController to register the student 
+    * @param student
+    * @return new student info
+    * description: register new student
+    */
    @Override
     @Transactional
     public Student register(Student student) {
@@ -44,15 +50,25 @@ public class StudentImpl implements StudentDAO {
         
     }
 
-    
+   /** 
+    * addCourse method is used by StudentController to add the course 
+    * @param course
+    * description: add new course into student profile
+    */
     @Override
     public void addCourse(Course course) {
-        // add course into students profile
+
         String SQL = "insert into course (studentId, courseId) values (?, ?)";
         jdbcTemplateObject.update(SQL, new Object[]{course.getStudentId(), course.getCourseId()});
         
     }
-
+    
+    /** 
+     * payFees method is used by StudentController to display fees
+     * @param id
+     * @return fees
+     * description: show/pay the fees of the course
+     */
     @Override
     public int payFees(Integer id) {
         // Pay fees for course
@@ -66,7 +82,13 @@ public class StudentImpl implements StudentDAO {
             return course.getFees();
            
     }
-
+    
+    /** 
+     * viewGrades method is used by StudentController to view the assigned grades
+     * @param courseid and studentid
+     * @return course grade
+     * description: shows the grade for a course selected by a student
+     */
     @Override
     public String viewGrades(Integer id, Integer stdId) {
         // view grades for course
@@ -80,7 +102,12 @@ public class StudentImpl implements StudentDAO {
             return course.getGrade();
           
     }
-
+    
+    /** 
+     * list method is used by StudentController to show all students
+     * @return students
+     * description: shows the list of students
+     */
     @Override
     @Transactional
     public List<Student> list() {
@@ -93,7 +120,11 @@ public class StudentImpl implements StudentDAO {
     }
 
     
-            
+    /** 
+     * drop method is used by StudentController to drop the student from a registered course
+     * @param id
+     * description: drops the student from a registered course
+     */
     @Override
     public void drop(Integer id) {
         // TODO Auto-generated method stub
@@ -103,7 +134,12 @@ public class StudentImpl implements StudentDAO {
             System.out.println("Deleted Record with ID = " + id );
             return;
     }
-
+    
+    /** 
+     * addProfile method is used by StudentController to create new profile credentials
+     * @param user
+     * description: create new userid and password (email will be used as userid)
+     */
     @Override
     @Transactional
     public User addProfile(User user) {
@@ -113,24 +149,7 @@ public class StudentImpl implements StudentDAO {
         return null;
     }
 
-    // @Override
-    // public void update(Integer id, Integer age) {
-    //     // TODO Auto-generated method stub
-    //         String SQL = "update employee set age = ? where id = ?";
-    //         jdbcTemplateObject.update(SQL, age, id);
-    //         System.out.println("Updated Record with ID = " + id );
-    //         return;
-    // }
-
-    // @Override
-    // @Transactional
-    // public int payFees(Integer id) {
-    //     // TODO Auto-generated method stub
-    //         String SQL = "select fees from course where id = ?";
-    //         int fees = jdbcTemplateObject.query(SQL,new StudentMapper(),id);
-    //         System.out.println("Fees for courseId"+id+": "+fees);
-    //         return fees;
-    // }
+  
 
 
 

@@ -14,13 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProfessorImpl implements ProfessorDAO {
     @Autowired
     private JdbcTemplate jdbcTemplateObject;
-    // public static List<Professor> professors;
-    // {
-    //     professors = new ArrayList<>();
-    //     professors.add(new Professor(1, "Professor 1", "prof1@gmail.com","100001"));
-    //     professors.add(new Professor(2, "Professor 2", "prof2@gmail.com","100002"));
-    //     professors.add(new Professor(3, "Professor 3", "prof3@gmail.com","100003"));
-    // }
+    /** 
+     * list method is used by ProfessorController to get all student details
+     * @return list of student details
+     * description: gets list of student details
+     */
     @Override
     @Transactional
     public List<Student> list() {
@@ -29,7 +27,13 @@ public class ProfessorImpl implements ProfessorDAO {
         List<Student> students = jdbcTemplateObject.query(SQL, new StudentMapper());
         return students;
     }
-
+    
+    /** 
+     * grade method is used by adminController to assign grade to a student
+     * @return registeredCourse
+     * @param registeredCourse
+     * description: assign a grade to student's course
+     */
     @Override
     @Transactional
     public RegisteredCourse grade(RegisteredCourse registeredCourse) {

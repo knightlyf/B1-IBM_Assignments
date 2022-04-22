@@ -20,28 +20,31 @@ public class AdminImpl implements AdminDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplateObject;
-    // private static List<Admin> admins;
-    // {
-    //     admins = new ArrayList<>();
-    //     admins.add(new Admin(1, "Admin 1", "adm1@gmail.com","1100001"));
-    //     admins.add(new Admin(2, "Admin 2", "adm2@gmail.com","1100002"));
-    //     admins.add(new Admin(3, "Admin 3", "adm3@gmail.com","1100003"));
-    // }
+    
+    /** 
+     * list method is used by AdminController to list all admins
+     * @return list of admins
+     * description: list all admins
+     */
     @Override
     @Transactional
     public List<Admin> list() {
-        // List all Admins
         String SQL = "select * from admin";
             List <Admin> admins = jdbcTemplateObject.query(SQL, 
                                     new AdminMapper());
                     
             return admins;
     }
-
+    
+    /** 
+     * create method is used by adminController to create an admin
+     * @return admin
+     * @param admin
+     * description: creates new admin
+     */
     @Override
     @Transactional
     public Admin create(Admin admin) {
-        // create an admin
         String SQL = "insert into admin (name, email, password ) values ( ?, ?, ?)";
 		      
         jdbcTemplateObject.update( SQL,new Object[] {admin.getName(),admin.getEmail(),admin.getPassword()});
@@ -49,27 +52,42 @@ public class AdminImpl implements AdminDAO {
        
         return admin;
     }
-
+    
+    /** 
+     * update method is used by adminController to update an admin info
+     * @return admin
+     * @param admin
+     * description: updates admin info
+     */
     @Override
     @Transactional
     public Admin update(Admin admin) {
-        // update admin info
 
         String SQL = "update admin set password = ? where id = ?";
         jdbcTemplateObject.update(SQL, new Object[]{admin.getName(),admin.getPassword()});
         System.out.println("Updated Record with ID = " + admin.getId() );
         return admin;
     }
-
+    
+    /** 
+     * delete method is used by adminController to delete an admin profile
+     * @return admin
+     * @param id
+     * description: delete an admin 
+     */
     @Override
     public Long delete(Long id) {
-        // delete an admin
         String SQL = "delete from admin where id = ?";
 		      jdbcTemplateObject.update(SQL, id);
 		      System.out.println("Deleted Record with ID = " + id );
 		      return 0L;
     }
-
+    
+    /** 
+     * listStudents method is used by adminController to get student list
+     * @return list of students
+     * description: get a list of students
+     */
     @Override
     @Transactional
     public List<Student> listStudents() {
@@ -80,7 +98,12 @@ public class AdminImpl implements AdminDAO {
                     
             return students;
     }
-
+    
+    /** 
+     * deleteStudent method is used by adminController to delete student info
+     * @param id
+     * description: delete student info
+     */
     @Override
     public void deleteStudent(Integer id) {
         // Delete student profile
@@ -90,7 +113,13 @@ public class AdminImpl implements AdminDAO {
         return;
         
     }
-
+    
+    /** 
+     * addProfessor method is used by adminController to add a professor
+     * @return professor details
+     * @param professor
+     * description: creates a professor profile
+     */
     @Override
     @Transactional
     public Professor addProfessor(Professor professor) {
@@ -102,28 +131,41 @@ public class AdminImpl implements AdminDAO {
        
         return professor;
     }
-
+    
+    /** 
+     * deleteProfessor method is used by adminController to delete a professor
+     * @param id
+     * description: updates admin info
+     */
     @Override
     public void deleteProfessor(Integer id) {
-        // Delete professor profile
         String SQL = "delete from professor where id = ?";
         jdbcTemplateObject.update(SQL, id);
         System.out.println("Deleted Record with ID = " + id );
         return;
         
     }
-
+    
+    /** 
+     * addProfileMain method is used by adminController to create credentials
+     * @return user credentials
+     * @param user
+     * description: creates credential
+     */
     @Override
     public User addProfileMain(User user) {
-        // Give username and password to a user
         String SQL = "insert into user (id, email, password) values (?, ?, ?)";
         jdbcTemplateObject.update( SQL,new Object[] {user.getId(),user.getEmail(),user.getPassword()});
-        return null;
+        return user;
     }
-
+    
+    /** 
+     * getAllUsers method is used by adminController to get list of user credentials
+     * @return list of user credentials
+     * description: get list of user credentials
+     */
     @Override
     public List<User> getAllUsers() {
-        // Get all users username and password
         String SQL = "select * from user";
             List <User> users = jdbcTemplateObject.query(SQL, 
                                     new UserMapper());
