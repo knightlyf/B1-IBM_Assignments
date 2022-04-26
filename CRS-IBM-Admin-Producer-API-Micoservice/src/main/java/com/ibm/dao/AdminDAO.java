@@ -16,11 +16,12 @@ public interface AdminDAO {
 
     //Student management
     public List<Student> listStudents();
-    public void deleteStudent(Integer id);
+    public void deleteStudent(Long id);
 
     //Professor management
+    public List<Professor> ListProfessor();
     public Professor addProfessor(Professor professor);
-    public void deleteProfessor(Integer id);
+    public void deleteProfessor(Long id);
 
     //Profile management
     public User addProfileMain(User user);

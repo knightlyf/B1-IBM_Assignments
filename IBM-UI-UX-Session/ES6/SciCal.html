@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ES6</title>
+        <script src="../Typescript/SciCal.js">
+            //class & obj
+        class Calculator {
+            #prv1;
+            #prv2;
+            constructor(num1, num2) {
+                this.num1 = num1;
+                this.num2 = num2;
+                this.#prv1 = 100;
+                this.#prv2 = 45;
+            }
+
+            //static method
+            static calStatic() {
+                console.log("calculator static method--->");
+                return 'Calculator static method';
+            
+            }
+
+            //private methods
+            #sin() {
+                console.log("private method for SIN\n");
+                return "sin of "+this.#prv1+" is "+Math.sin(this.#prv1);
+            }
+            #cos(){
+                console.log("private method for COS\n");
+                return "cos of "+this.#prv1+" is "+Math.cos(this.#prv1);
+            }
+            #tan(){
+                console.log("private method for TAN\n");
+                return "tan of "+this.#prv2+" is "+Math.tan(this.#prv2);
+            }
+
+            //public methods
+            sqrt() {
+                return "sqrt of "+this.num1+" is:"+Math.sqrt(this.num1);
+            }
+
+            preMethod(){
+                console.log("Call private using privileged method\n");
+                console.log("Sin("+this.#prv1+")="+this.#sin());
+                console.log("Cos("+this.#prv1+")="+this.#cos());
+                console.log("Tan("+this.#prv2+")="+this.#tan());
+            }
+
+        }
+        //inheritence
+        class Computer extends Calculator{
+            status(){
+                console.log("Inheritence--->");
+                return 'Computer is calculating';
+            }
+        }
+
+        Calculator.prototype.number1 = 400;
+        Calculator.prototype.number2 = 500;
+        Calculator.prototype.show = function() {
+            return "Prototype Numbers are:"+this.number1 +" & "+ this.number2;
+        }
+
+        // let sciCal = new Calculator(10, 20);
+        let sciCal = new Computer(10, 20);
+        console.log(Calculator.calStatic());
+        console.log("Prototype call\n"+sciCal.show());
+        console.log("Private method call\n"+sciCal.preMethod());
+        console.log("Public method call\n"+sciCal.sqrt());
+        console.log(sciCal.status());
+        
+
+        </script>
+    </head>
+</html>

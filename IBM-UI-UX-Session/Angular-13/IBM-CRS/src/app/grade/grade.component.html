@@ -1,0 +1,55 @@
+
+<div class="toolbar" role="banner">
+    <img
+      width="40"
+      alt="Angular Logo"
+      src="https://icon-library.com/images/professor-icon-png/professor-icon-png-17.jpg" />
+   
+      <h1>Assign Grades</h1>
+</div>
+<div>
+    <div class="container" style="margin-top: 2cm;">
+        <div class="row justify-content-start" style="padding-top:10px;">
+            <label>StudentId</label>
+        </div>
+        <div class="row justify-content-center" style="padding-top:10px;">
+            <input class="form-control" [(ngModel)]="model.studentId">
+            <!-- <input class="form-control" ngModel> -->
+        </div>
+        <div class="row justify-content-start" style="padding-top:10px;">
+            <label>CourseId</label>
+        </div>
+        <div class="row justify-content-start" style="padding-top:10px;">
+            <input class="form-control" [(ngModel)]="model.courseId">
+        </div>
+        <div class="row justify-content-start" style="padding-top:10px;">
+            <label>Grade</label>
+        </div>
+        <div class="row justify-content-start" style="padding-top:10px;">
+            <input class="form-control" [(ngModel)]="model.grade">
+
+        </div>
+        <div class="row justify-content-start" style="padding-top:10px;">
+            <button type="submit" (click)="gradeStudent()" style=" margin-top: 1cm; margin-right: 20%;size: 2cm;" class="btn btn-primary" >Submit</button>
+        </div>
+
+        <div style="margin-top: 2cm;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>StudentId</th>
+                        <th>CourseId</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let grade of studArray">
+                        <td>{{grade.studentId}}</td>
+                        <td>{{grade.courseId}}</td>
+                        <td>{{grade.grade}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -44,7 +44,7 @@ public class ProfessorController {
      */
     @RequestMapping(produces = MediaType.APPLICATION_JSON,method = RequestMethod.POST, value = "/post/students/grades")
     @ResponseBody
-    public ResponseEntity<RegisteredCourse> createProfessor(@RequestBody RegisteredCourse registeredCourse) {
+    public ResponseEntity<RegisteredCourse> gradeStudent(@RequestBody RegisteredCourse registeredCourse) {
         professorDAO.grade(registeredCourse);
         return new ResponseEntity<>(registeredCourse, HttpStatus.OK);
     }

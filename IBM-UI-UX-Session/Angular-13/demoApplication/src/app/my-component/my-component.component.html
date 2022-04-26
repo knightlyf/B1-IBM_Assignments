@@ -1,0 +1,37 @@
+<form ngForm>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="model.name" name="name">
+    </div>
+    
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number"  class="form-control" id="age"
+             [(ngModel)]="model.age" name="age">
+    </div>
+    
+      <button type="submit" class="btn btn-primary" (click)=" createCustomer()">Submit</button>
+    </form>
+    <div >
+        <ol class="output-box">
+          <li class="list" appHighlightDirective *ngFor='let cust of custArray'>
+            <span>
+              {{cust.name | lowercase}}-{{cust.age | testpipe: 2 : 3}} 
+            </span>
+            <button class="btn btn-danger" (click)="deleteCustomer(cust)">Delete</button>
+            <button class="btn btn-success" (click)="updateCustomer(cust)">Update</button>
+            </li>
+        </ol>
+      </div>
+      <div>
+        <button type="submit"(click)="getRegisteredStudent()" class="btn btn-danger">Submit</button> 
+        <div>
+          <ol>
+              <li appHighlightDirective *ngFor='let student of getData'>
+              {{ student.name}}<b>||</b> {{student.email}}
+              </li>
+           </ol>
+        </div>
+      </div>

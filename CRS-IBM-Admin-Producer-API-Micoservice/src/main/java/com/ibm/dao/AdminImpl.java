@@ -8,6 +8,7 @@ import com.ibm.bean.Professor;
 import com.ibm.bean.Student;
 import com.ibm.bean.User;
 import com.ibm.mapper.AdminMapper;
+import com.ibm.mapper.ProfessorMapper;
 import com.ibm.mapper.StudentMapper;
 import com.ibm.mapper.UserMapper;
 
@@ -105,7 +106,7 @@ public class AdminImpl implements AdminDAO {
      * description: delete student info
      */
     @Override
-    public void deleteStudent(Integer id) {
+    public void deleteStudent(Long id) {
         // Delete student profile
         String SQL = "delete from student where id = ?";
         jdbcTemplateObject.update(SQL, id);
@@ -124,7 +125,7 @@ public class AdminImpl implements AdminDAO {
     @Transactional
     public Professor addProfessor(Professor professor) {
         // Add professor profile
-        String SQL = "insert into admin (id, name, email, password ) values (?, ?, ?, ?)";
+        String SQL = "insert into professor (id, name, email, mobile ) values (?, ?, ?, ?)";
 		      
         jdbcTemplateObject.update( SQL,new Object[] {professor.getId(),professor.getName(),professor.getEmail(),professor.getMobile()});
         System.out.println("Created Record Name = " + professor.getName());
@@ -138,7 +139,7 @@ public class AdminImpl implements AdminDAO {
      * description: updates admin info
      */
     @Override
-    public void deleteProfessor(Integer id) {
+    public void deleteProfessor(Long id) {
         String SQL = "delete from professor where id = ?";
         jdbcTemplateObject.update(SQL, id);
         System.out.println("Deleted Record with ID = " + id );
@@ -172,6 +173,20 @@ public class AdminImpl implements AdminDAO {
                     
             return users;
     }
+    /** 
+     * ListProfessor method is used by adminController to get list of professors
+     * @return list of professor details
+     * description: get list of professor details
+     */
+	@Override
+	public List<Professor> ListProfessor() {
+		// TODO Auto-generated method stub
+		String SQL = "select * from professor";
+        List <Professor> professors = jdbcTemplateObject.query(SQL, 
+                                new ProfessorMapper());
+                
+        return professors;
+	}
 
     
 

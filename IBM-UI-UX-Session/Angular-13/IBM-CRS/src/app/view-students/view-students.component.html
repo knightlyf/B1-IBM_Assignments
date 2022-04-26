@@ -1,0 +1,33 @@
+<div class="toolbar" role="banner">
+    <img
+      width="40"
+      alt="Angular Logo"
+      src="https://icon-library.com/images/professor-icon-png/professor-icon-png-17.jpg" />
+   
+      <h1>View Students</h1>
+  </div>
+<!-- <button (click)="getRegisteredStudent()">View Students</button> -->
+<div style="margin-top: 2cm;">
+<!-- <ul class="output-box">
+    <li class="list" *ngFor="let item of items">
+        {{item.id+"--Name:"+item.name}}<br>
+        {{"Email: "+item.email}}<br>
+        {{"\nPhone: "+item.mobile}}<br><br>
+    </li>
+</ul> -->
+<table style="width: 700px; margin-left: 0.5cm;">
+    <tr style="font-size: large; color: dodgerblue;">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.mobile}}</td>
+    </tr>
+</table>
+
+</div>

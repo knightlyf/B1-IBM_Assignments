@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Professor Controls</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="toolbar" role="banner">
+        <img
+          width="40"
+          alt="Angular Logo"
+          src="https://icon-library.com/images/professor-icon-png/professor-icon-png-17.jpg" />
+       
+          <h1>Professor Controls</h1>
+      </div>
+    <div class="container body-content">
+        <div class="container">
+            <div class="row justify-content-start" style="padding-top:10px;">
+
+                <!-- <div class="col" style="padding-top:10px;">
+                    <input class="form-control"></input>
+
+
+                </div>
+                <div class="col" style="padding-top:10px;">
+                    <button class="btn btn-primary">SEARCH</button>
+
+
+                </div> -->
+            </div>
+            <div class="row justify-content-start" style="padding-top:10px;">
+
+                <div class="col" style="padding-top:10px; margin-top: 1cm;">
+
+
+                    <img alt="Image html" width="90%" height="90%" style="max-height:500px;max-width:500px;"
+                        src="https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-students-achievements-flaticons-flat-flat-icons-3.png" />
+
+
+                </div>
+                <div class="col" style="padding-top:10px;margin-top: 1cm;">
+
+
+                    <img alt="Image html" width="90%" height="90%" style="max-height:500px;max-width:500px;"
+                        src="https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-grade-university-flaticons-flat-flat-icons-2.png" />
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row justify-content-start" style="padding-top:10px; padding-left: 10px;">
+
+                <div class="col" style="padding-top:3px;">
+                    <div style="margin-left:32% ;">
+                        <!-- <button type="submit" (click)="getRegisteredStudent()" class="btn btn-primary">View Students</button> -->
+                        <button type="submit" (click)="onSelect1()" class="btn btn-primary">View Students</button>
+                        <!-- <ul class="output-box">
+                            <li class="list" *ngFor="let item of items">
+                                {{item.id+"--Name:"+item.name}}<br>
+                                {{"Email: "+item.email}}<br>
+                                {{"\nPhone: "+item.mobile}}<br><br>
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="col" style="padding-top:3px; margin-left: 27%;">
+                    <button (click)="onSelect()" class="btn btn-primary">Assign Grades</button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

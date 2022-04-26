@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ES6</title>
+        <script>
+            //create class & obj in es6
+            class Person {
+
+                //private variable
+                #test;
+
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                    this.#test = 100;
+                    console.log('object is init-->');
+                    console.log('Name:'+this.name);
+                    console.log('Age:'+this.age);
+                }
+                //priavte method here
+                #stuffPrivateMethod() {
+                    console.log('call private method here-->');
+                    return this.#test;
+                }
+                
+                //public method here
+                getConcatMethod(){
+                    console.log('Call all methods here--->');
+                    return
+                    this.conCat();
+                }
+                
+                conCat(){
+                    console.log("Concat method is called--->");
+                    return this.name+" "+this.age;
+                }
+
+                preMethod(){
+                    console.log("call private method using priveleged--->");
+                    return this.#stuffPrivateMethod();
+                }
+
+                static testStatic(){
+                    console.log("call static method--->");
+                    return 'i am static impl here';
+                
+                }
+            }
+
+            
+
+            Person.prototype.property1=200;
+            Person.prototype.sayHello=function(){
+                console.log('call the method -->');
+                return this.property1;
+            }
+
+            //inheritence
+            class Student extends Person{
+                testStudent(){
+                    console.log('call the student method-->');
+                    return 'Im the child class';
+                }
+            }
+
+            // let p = new Person("John", 30);
+            let s = new Student("John", 30);
+            console.log("calling the person class public method-->"+s.getConcatMethod());
+            console.log("calling the person class private method-->"+s.preMethod());
+            console.log("call the prototype here -->"+s.sayHello());
+            console.log("call the static method- by class name->"+Person.testStatic());
+            console.log("call the student method here->"+s.testStudent());
+        </script>
+
+    </head>
+</html>

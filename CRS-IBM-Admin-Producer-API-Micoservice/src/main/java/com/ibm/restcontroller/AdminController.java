@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ws.rs.core.MediaType;
 import com.ibm.bean.Admin;
+import com.ibm.bean.Professor;
+import com.ibm.bean.Student;
 import com.ibm.bean.User;
 import com.ibm.dao.AdminDAO;
 
@@ -102,4 +104,72 @@ public class AdminController {
         List<User> user = adminDAO.getAllUsers();
         return user;
     }
+    
+    /** 
+     * deleteProf RESTendpoint is used by admin to delete a professor
+     * @param professor
+     * @return deleted professor
+     * url:/delete/professors/{id}
+     * description: delete professors
+     */
+    @RequestMapping(produces = MediaType.APPLICATION_JSON,method = RequestMethod.DELETE, value = "/delete/professors/{id}")
+    @ResponseBody
+    public ResponseEntity<Long> deleteProf(@PathVariable Long id) {
+    	adminDAO.deleteProfessor(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+    
+    /** 
+     * listProfessors RESTendpoint is used by admin to see details of professors
+     * @return list of Professors
+     * url:/professors
+     * description: get list of professors
+     */
+    @RequestMapping(produces = MediaType.APPLICATION_JSON,method = RequestMethod.GET, value = "/professors")
+    @ResponseBody
+    public List<Professor> listProfessors() {
+        List<Professor> user = adminDAO.ListProfessor();
+        return user;
+    }
+    
+    /** 
+     * listStudents RESTendpoint is used by admin to see details of students
+     * @return list of students
+     * url:/students/registrations
+     * description: get list of students
+     */
+    @RequestMapping(produces = MediaType.APPLICATION_JSON,method = RequestMethod.GET, value = "/students/registrations")
+    @ResponseBody
+    public List<Student> listStudents() {
+        List<Student> user = adminDAO.listStudents();
+        return user;
+    }
+    
+    /** 
+     * addProfessors RESTendpoint is used by admin to add details of professors
+     * @return new Professor detail
+     * url:/professors
+     * description: add new professors
+     */
+    @RequestMapping(produces = MediaType.APPLICATION_JSON,method = RequestMethod.POST, value = "/professors")
+    @ResponseBody
+    public ResponseEntity<Professor> updateUserMain(@RequestBody Professor professer) {
+        adminDAO.addProfessor(professer);
+        return new ResponseEntity<Professor>(professer, HttpStatus.OK);
+    }
+   
+    /** 
+     * deleteProf RESTendpoint is used by admin to delete a professor
+     * @param professor
+     * @return deleted professor
+     * url:/delete/professors/{id}
+     * description: delete professors
+     */
+    @RequestMapping(produces = MediaType.APPLICATION_JSON,method = RequestMethod.DELETE, value = "/delete/students/{id}")
+    @ResponseBody
+    public ResponseEntity<Long> deleteStudents(@PathVariable Long id) {
+    	adminDAO.deleteStudent(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+    
 }
